@@ -15,11 +15,21 @@ class TypeWriter {
     let typeSpeed = 200;
     //Grab current index of word.
     const current = this.wordIndex % this.words.length;
-
     //Grab full text of current word
     const fullTxt = this.words[current];
-    // console.log(fullTxt);
-    
+
+    //check if deleting
+    if(this.isDeleting) {
+      //remove a character
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      //add a character
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    //insert txt to html element to output changes
+    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
     setTimeout(() => this.type(), typeSpeed);
   }
 }
