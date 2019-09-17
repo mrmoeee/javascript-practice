@@ -2,6 +2,9 @@
 
 TypeWriter is a small project I created by following a tutorial. I wanted to simulate typing inside a div element.
 
+![](typewriter.gif)
+
+
 Using ES6 I defined a class called TypeWriter.
 
 ```js
