@@ -11,8 +11,6 @@ class TypeWriter {
   }
 
   type() {
-    //intialize typeSpeed 
-    let typeSpeed = 200;
     //Grab current index of word.
     const current = this.wordIndex % this.words.length;
     //Grab full text of current word
@@ -29,6 +27,27 @@ class TypeWriter {
 
     //insert txt to html element to output changes
     this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+    //intialize typeSpeed 
+    let typeSpeed = 100;
+    
+    if(this.isDeleting) {
+      typeSpeed /= 2; //cutting in half type speed to delete faster than type
+    }
+
+    //check if word is complete
+    if(!this.isDeleting && this.txt === fullTxt) {
+      //make a pause when word is completed
+      typeSpeed = this.wait;
+      //set Delete to true;
+      this.isDeleting = true;
+    } else if(this.isDeleting && this.txt === '') { //when deletring and word is empty, go to next word
+      this.isDeleting = false;
+      //move to next word;
+      this.wordIndex++;
+      //pause before typing next word;
+      typeSpeed = 200;
+    } 
 
     setTimeout(() => this.type(), typeSpeed);
   }
