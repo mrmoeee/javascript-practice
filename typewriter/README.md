@@ -24,4 +24,16 @@ I used an event listener to start the process of simluation when the page is loa
 ```js
 document.addEventListener('DOMContentLoaded', init);
 ```
+init is a function where I grabbed all my variables from the document, and created my TypeWriter object.
 
+```js
+function init() {
+  //Need to grab everything before creating the object (the attributes required)
+  const txtElement = document.querySelector('.txt-type');
+  //When grabbing array, need to parse it otherwise it will be used as a string
+  const words = JSON.parse(txtElement.getAttribute('data-words'));
+  const wait = txtElement.getAttribute('data-wait');
+
+  new TypeWriter(txtElement, words, wait);
+}
+```
