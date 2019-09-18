@@ -9,18 +9,19 @@ function addLi() {
   //Else, grab lastChild, find the last ID# create a new List incrementing the ID# and item# class
   // let lastChild = children[children.length - 1];
   // let newChildId = parseInt(lastChild.id) + 1;
+  let lastChild, newId;
   if(children.length === 0) {
-    console.log('Empty Children!');
+    newId = 1;
   }  else {
-    // newChildId = 29;
+    lastChild = children[children.length - 1];
+    newId = parseInt(lastChild.id) + 1;
   }
 
-
   let newChild = document.createElement('li');
-  newChild.id = newChildId;
+  newChild.id = newId;
   //innerHTML is prone to XSS when recieving user input, here we are not so its fine(?)
   newChild.innerHTML = 'Some item name' + ' ' + `<button onclick='removeLi(this)'>Remove</button>`;
-  newChild.className = `item item-${newChildId}`;
+  newChild.className = `item item-${newId}`;
   //Appened the newChild to the "parent", which is the list
   list.appendChild(newChild);
 }
