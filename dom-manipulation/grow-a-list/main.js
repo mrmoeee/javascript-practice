@@ -7,8 +7,8 @@ function addLi() {
 
   //If list is empty start the index at 1
   //Else, grab lastChild, find the last ID# create a new List incrementing the ID# and item# class
-  let lastChild = children[children.length - 1];
-  let newChildId = 1;
+  // let lastChild = children[children.length - 1];
+  // let newChildId = parseInt(lastChild.id) + 1;
   if(children.length) {
     console.log('Empty Children!');
   }  else {
