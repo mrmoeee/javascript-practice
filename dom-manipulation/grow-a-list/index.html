@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <h1 class="title">Some List</h1>
-    <ol id='parent' class='list-container'>
-      <li id="1" class="item item-1">Some Item name <button onclick='removeLi(this)'>Remove</button></li>
-      <li id="2" class="item item-2">Some Item name <button onclick='removeLi(this)'>Remove</button></li>
-      <li id="3" class="item item-3">Some Item name <button onclick='removeLi(this)'>Remove</button></li>
-    </ol>
+    <div class='title-container'>
+      <h1 class="title">Some List</h1>
+    </div>
+    <div class='list-container'>
+      <ol id='parent' class='list'>
+        <li id="1" class="item item-1">Some Item name <button onclick='removeLi(this)'>Remove</button></li>
+        <li id="2" class="item item-2">Some Item name <button onclick='removeLi(this)'>Remove</button></li>
+        <li id="3" class="item item-3">Some Item name <button onclick='removeLi(this)'>Remove</button></li>
+      </ol>
+      <button class='add-btn' onclick='addLi()'>Add to List</button>
+    </div>
     
-    <button onclick='addLi()'>Add to List</button>
 
     <script src="main.js"></script>
   </body>

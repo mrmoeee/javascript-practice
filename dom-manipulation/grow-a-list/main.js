@@ -2,7 +2,7 @@ function addLi() {
   //grab "parent", which is the list we want to append to
   //querySelectorAll returns a nodeList, getElementsByClassName returns an HTML collection
   //querySelector and getElementsById returns the HTML element
-  let list = document.querySelector('ol.list-container');
+  let list = document.querySelector('ol.list');
   let children = list.children;
 
   //If list is empty start the index at 1
