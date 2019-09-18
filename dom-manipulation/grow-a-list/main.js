@@ -9,7 +9,7 @@ function addLi() {
   //Else, grab lastChild, find the last ID# create a new List incrementing the ID# and item# class
   // let lastChild = children[children.length - 1];
   // let newChildId = parseInt(lastChild.id) + 1;
-  if(children.length) {
+  if(children.length === 0) {
     console.log('Empty Children!');
   }  else {
     // newChildId = 29;
