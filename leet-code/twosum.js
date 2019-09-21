@@ -17,22 +17,21 @@ function twoSum(nums, target) {
 
 //using an object
 function twoSumObj(nums, target) {
-  //es6 object assign
-  let obj = Object.assign({}, nums);
-
-  //es6 spread syntax
-  // let obj = { ...nums};
-  console.log(Object.values(obj));
-
+  //create hash using numbers as keys, and index as value{ '2': 0, '7': 1, '11': 2, '15': 3 }
+  let hash = {};
   for(let i = 0; i < nums.length; i++) {
     let compliment = target - nums[i];
-  
-    console.log(compliment + ': comp');
-    console.log('index: ' + i);
-   
-    console.log('object value' + obj[i]);
-   
+    //the number we are looking for will exist in the hash 
+    if(typeof(hash[compliment]) !== 'undefined') {
+      return [hash[compliment], i];
+    }
+    //if the if condition isnt met we still need to build out the hash
+    hash[nums[i]] = i;
   }
+  //return empty array if no solution
+  return [];
 }
+
+
 
 twoSumObj(numbers, targetNum);
