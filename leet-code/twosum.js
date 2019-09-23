@@ -16,6 +16,7 @@ function twoSum(nums, target) {
 }
 
 //using an object
+//still need to test with an array that isnt sorted, and an array with dupes?
 function twoSumObj(nums, target) {
   //create hash using numbers as keys, and index as value{ '2': 0, '7': 1, '11': 2, '15': 3 }
   let hash = {};
@@ -31,7 +32,5 @@ function twoSumObj(nums, target) {
   //return empty array if no solution
   return [];
 }
-
-
 
 twoSumObj(numbers, targetNum);
