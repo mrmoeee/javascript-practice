@@ -44,7 +44,7 @@ function reverse(number) {
   while(number !== 0) {
     let digit = number % 10;
     reversed = reversed * 10 + digit;
-    if(reversed > Number.MAX_SAFE_INTEGER || reversed < Number.MIN_SAFE_INTEGER) {
+    if(reversed > 2147483648 - 1 || reversed < -2147483648) {
       return 0;
     }
     number = Math.trunc(number / 10);
