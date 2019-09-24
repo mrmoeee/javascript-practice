@@ -30,4 +30,34 @@ function reverseNum(number) {
   return reverse;
 }
 
-console.log(reverseNum(-1234));
+//reverse using while loop and modding number;
+// result = 0 * 10 + 123 % 10 =3 
+// x = 123 / 10 = 12 -> need to use Math.trunc to make this work
+//Math.trunc removes fractional part of the number and returns the integer part
+// result = 3*10 + 12%10 = 32
+// x = 12/10 = 1
+
+// result = 32*10 + 1 = 321 
+function reverse(number) {
+  let reversed = 0;
+
+  while(number !== 0) {
+    let digit = number % 10;
+    reversed = reversed * 10 + digit;
+    if(reversed > Number.MAX_SAFE_INTEGER || reversed < Number.MIN_SAFE_INTEGER) {
+      return 0;
+    }
+    number = Math.trunc(number / 10);
+  }
+  return reversed;
+}
+
+console.log(reverse(
+  1534236469));
+// result = 0*10 + 123%10 =3 
+// x = 123/10 = 12
+
+// result = 3*10 + 12%10 = 32
+// x = 12/10 = 1
+
+// result = 32*10 + 1 = 321 
