@@ -34,13 +34,6 @@ function addTwoNumbers(list1, list2) {
     result = Math.trunc(result / 10);
   }
 
-  let l3 = new Node(digitArr[0]);
-  for(let i = 1; i < digitArr.length; i++) {
-    let next = new Node(digitArr[i]);
-    let val = next.val;
-    console.log(next);
-  }
-  return l3;
 }
 
 function getVal(node){
