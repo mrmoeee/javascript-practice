@@ -4,7 +4,6 @@
 // Add the two numbers and return it as a linked list.
 // You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
-
 class Node {
   constructor(val) {
     this.value = val;
@@ -19,6 +18,7 @@ l1.next.next = new Node(3);
 let l2 = new Node(5);
 l2.next = new Node(6);
 l2.next.next = new Node(4);
+// console.log(l1);
 //l1 = (2 -> 4 - >3) + (l2) (5 -> 6 -> 4);
 //expected output = 7 -> 0 -> 8
 function addTwoNumbers(list1, list2) {
@@ -49,4 +49,17 @@ function getVal(node){
   return vals;
 }
 
-console.log(addTwoNumbers(l1, l2));
+//successfully created linked list from array
+function test(array, length) {
+  if (length === 0) {
+    return new Node(array[0]);
+  }
+  let head = new Node(array[length - 1]);
+  head.next = test(array, length - 1);
+  // console.log(head);
+  return head; 
+}
+
+let answer = test([1,3,4], 3);
+console.log(answer.next.next.next);
+// console.log(answer.next.next);
