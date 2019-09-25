@@ -11,13 +11,15 @@ class Node {
   }
 }
 //creating l1 and l2 as linkedlists
-let l1 = new Node(2);
+let l1 = new Node(1);
 l1.next = new Node(4);
-l1.next.next = new Node(3);
+// l1.next.next = new Node(3);
 
-let l2 = new Node(5);
-l2.next = new Node(6);
-l2.next.next = new Node(4);
+let l2 = new Node(1);
+// l2.next = new Node(6);
+// l2.next.next = new Node(4);
+// let l1 = new Node(0);
+// let l2 = new Node(0);
 // console.log(l1);
 //l1 = (2 -> 4 - >3) + (l2) (5 -> 6 -> 4);
 //expected output = 7 -> 0 -> 8
@@ -25,15 +27,24 @@ function addTwoNumbers(list1, list2) {
   let l1Val = getVal(list1);
   let l2Val = getVal(list2);
   let result = 0;
-  let digitArr = [];
   result = parseInt(l1Val.join('')) + parseInt(l2Val.join(''));
-
-  while (result !== 0) {
-    let digit = result % 10;
-    digitArr.push(digit);
-    result = Math.trunc(result / 10);
+  let digits = [];
+  if (result === 0) {
+    return new Node(0);
+  } else {
+    digits = getDigits(result);
   }
+  return convertToList2(digits, 0);
+}
 
+function getDigits(number) {
+  let digitArr = [];
+  while (number !== 0) {
+    let digit = number % 10;
+    digitArr.push(digit);
+    number = Math.trunc(number / 10);
+  }
+  return digitArr;
 }
 
 function getVal(node){
@@ -50,16 +61,34 @@ function getVal(node){
 }
 
 //successfully created linked list from array
+//this converts from last element
 function convertToList(array, length) {
   let index = length - 1;
   if (index === 0) {
     return new Node(array[index]);
   }
   let head = new Node(array[index]);
-  console.log(head);
+  // console.log(head);
   head.next = convertToList(array, index);
   // console.log(head);
   return head; 
 }
 
+//this will convert from the beginning given index at 0
+function convertToList2(array, length) {
+  if(array.length < 1) {
+    return new Node(array[0]);
+  }
+  let index = length;
+  if (index === array.length - 1) {
+    return new Node(array[index]);
+  }
+  let head = new Node(array[index]);
+  // console.log(head);
+  head.next = convertToList2(array, index + 1);
+  // console.log(head);
+  return head; 
+}
+
 // console.log(answer.next.next);
+console.log(addTwoNumbers(l1, l2));
