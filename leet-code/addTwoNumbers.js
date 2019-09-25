@@ -50,16 +50,16 @@ function getVal(node){
 }
 
 //successfully created linked list from array
-function test(array, length) {
-  if (length === 0) {
-    return new Node(array[0]);
+function convertToList(array, length) {
+  let index = length - 1;
+  if (index === 0) {
+    return new Node(array[index]);
   }
-  let head = new Node(array[length - 1]);
-  head.next = test(array, length - 1);
+  let head = new Node(array[index]);
+  console.log(head);
+  head.next = convertToList(array, index);
   // console.log(head);
   return head; 
 }
 
-let answer = test([1,3,4], 3);
-console.log(answer.next.next.next);
 // console.log(answer.next.next);
