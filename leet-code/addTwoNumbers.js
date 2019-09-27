@@ -80,7 +80,7 @@ l1.next = new Node(2);
 l1.next.next = new Node(1);
 let l2 = new Node(7);
 l2.next = new Node(6);
-l2.next.next = new Node(5);
+
 
 console.log(addTwoNumbers(l1, l2));
 
