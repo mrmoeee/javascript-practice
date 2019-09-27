@@ -53,6 +53,25 @@ function addTwoNumbers(l1, l2) {
     l1 = l1.next;
     l2 = l2.next; 
   }
+
+  //if there is no l2
+  while(l1 !== null) {
+    let digitValue = (l1.val + carry) % 10;
+    carry = Math.trunc(l1.val + carry) / 10;
+    let newNode = new Node(digitValue);
+    l3.next = newNode;
+    l3 = newNode;
+    l1 = l1.next;
+  }
+  //if there is no l1
+  while(l2 !== null) {
+    let digitValue = (l1.val + carry) % 10;
+    carry = Math.trunc(l1.val + carry) / 10;
+    let newNode = new Node(digitValue);
+    l3.next = newNode;
+    l3 = newNode;
+    l2 = l2.next;
+  }
   return dummy.next;
 }
 
