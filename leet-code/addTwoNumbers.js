@@ -72,14 +72,20 @@ function addTwoNumbers(l1, l2) {
     l3 = newNode;
     l2 = l2.next;
   }
+
+  //a condition for cases such as (2 + 9) = 11, where result length needs extra node
+  if(carry !== 0) {
+    let newNode = new Node(carry);
+    l3.next = newNode;
+    l3 = newNode;
+  }
   return dummy.next;
 }
 
 let l1 = new Node(3);
-l1.next = new Node(2);
-l1.next.next = new Node(1);
+
 let l2 = new Node(7);
-l2.next = new Node(6);
+
 
 
 console.log(addTwoNumbers(l1, l2));
