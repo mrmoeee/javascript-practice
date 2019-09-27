@@ -25,13 +25,45 @@
 
 class Node {
   constructor(val) {
-    this.value = val;
+    this.val = val;
     this.next = null;
   }
 }
 
 function addTwoNumbers(l1, l2) {
-  let dummy = new Node(0);
+  let dummy = new Node(0); //used to linke to head of result linkedList
+  let l3 = dummy; //pointer of the result increase, in beginniner should refer to dummy
+  let carry = 0; //keep track of carry
+
+  // 12 + 9 = 21 (2 + 9 = 11 % 10 = 1) 11 / 10 = 1 (for carry);
+  //test using 123 + 567
+  while (l1 !== null && l2 !== null) {
+    //first cycle example
+    //3 + 7 = 10 -> % 10 = digitVal = 0
+    let digitValue = (l1.val + l2.val + carry) % 10;
+    //3 + 7 = 10 -> / 10 = carry = 1;
+    //carry = 1 for next cycle now when l1.val = 2 and l2.val = 6
+    carry = Math.trunc((l1.val + l2.val + carry) / 10);
+    //create newNode to build our dummy for answer -> new node = digitValue
+    let newNode = new Node(digitValue);
+    //add new node to result linkedlist, inturn will update dummy linkedlist
+    l3.next = newNode;
+    //move pointer to new node to continue on
+    l3 = newNode;
+    l1 = l1.next;
+    l2 = l2.next; 
+  }
+  return dummy.next;
 }
+
+let l1 = new Node(3);
+l1.next = new Node(2);
+l1.next.next = new Node(1);
+let l2 = new Node(7);
+l2.next = new Node(6);
+l2.next.next = new Node(5);
+
+console.log(addTwoNumbers(l1, l2));
+
 
 
